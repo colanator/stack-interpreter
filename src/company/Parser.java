@@ -55,37 +55,7 @@ class Parser {
         }
 
         //käännetään pino ympäri, jotta tulkki lukee ohjelman oikeassa järjestyksessä.
-        //reverseStack(instructions);
-
-        /*
-        HashSet<String> käskyt = new HashSet<>();
-        käskyt.add("+");
-        käskyt.add("-");
-        käskyt.add("*");
-        käskyt.add("/");
-        käskyt.add("||");
-        käskyt.add("!!");
-        käskyt.add("&&");
-
-        Stack temp = new Stack();
-
-        for (int c = koodi.length - 1; c >= 0; c--) {
-            System.out.print(koodi[c]);
-            ei käsitellä välilyöntejä tai rivinvaihtoa
-            if(koodi[c] == '\n' || koodi[c] == ' '){
-                System.out.println("ENTER");
-            }
-            //kokonaisluvut
-            if (c == 1) {
-
-            }
-            //merkkijonoliteraali
-            if (c == '"') {
-                for (int i = c; i >= 0; i--) {
-
-                }
-            }
-        }*/
+        reverseStack(instructions);
 
         return instructions;
     }
