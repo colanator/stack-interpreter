@@ -1,8 +1,12 @@
 package company;
 
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.EmptyStackException;
 import java.util.Stack;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static java.lang.Double.parseDouble;
 
 /**
  * Created by Aapo Torkkeli on 31.5.2017.
@@ -10,7 +14,7 @@ import java.util.Stack;
 class Interpreter {
 
     private Stack instructions;
-    private Stack data;
+    private Stack data = new Stack();
 
     Interpreter(Stack instructions){
         this.instructions = instructions;
@@ -19,7 +23,52 @@ class Interpreter {
     //TODO
     void start(){
 
-        System.out.println(Arrays.toString(instructions.toArray()));
+        String instr = "";
+
+        double temp1;
+        double temp2;
+        double temp3;
+
+        while(true){
+
+            try {
+                instr = instructions.pop().toString();
+            } catch (EmptyStackException e){
+                //e.getStackTrace();
+            }
+
+            //Summa
+            if(instr.matches("\\Q +\\E")){
+                temp1 = parseDouble((String) data.pop());
+                temp2 = parseDouble((String) data.pop());;
+                temp3 = temp1+temp2;
+                data.push(temp3);
+            }
+            //Erotus
+            else if(instr.matches("\\Q -\\E")){
+
+            }
+            //Kertolasku
+            else if(instr.matches("\\Q *\\E")){
+
+            }
+            //Jakolasku
+            else if(instr.matches("\\Q /\\E")){
+
+            }
+            //Literaali
+            else if(!instr.matches(";")){
+                data.push(instr);
+            }
+
+            System.out.println("Data: "+data.peek().toString());
+
+            //PINO ON TYHJÄ
+            if(instructions.empty()){
+                break;
+            }
+        }
+
 
         /*
         HashSet<String> käskyt = new HashSet<>();

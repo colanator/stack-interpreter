@@ -14,12 +14,10 @@ class Parser {
 
     private String file;
 
-    //TODO
     Parser(String file){
         this.file = file;
     }
 
-    //TODO
     Stack parse(){
 
         //pino käskyjä varten
