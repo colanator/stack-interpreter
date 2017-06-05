@@ -49,7 +49,9 @@ class Parser {
                 instructions.push(temp.toString());
                 temp = new StringBuilder("");
             }
-            temp.append(koodi[i]);
+            if(koodi[i] != ' ' && koodi[i] != '\n') {
+                temp.append(koodi[i]);
+            }
         }
 
         //käännetään pino ympäri, jotta tulkki lukee ohjelman oikeassa järjestyksessä.
